@@ -8,10 +8,8 @@ body{
 }
 .group {
     width:80%;
-    height: 500px;
 }
 .group .subgroup {
-    height: 200px;
 }
 #sidebar.affix {
     padding-top:70px;
@@ -70,4 +68,23 @@ body{
 /* show active nested list */
 .bs-docs-sidebar .nav>.active>ul.nav {
     display: block;           
+}
+path.line {
+    fill:none;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
 }
