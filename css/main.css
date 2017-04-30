@@ -88,3 +88,22 @@ path.line {
     stroke: steelblue;
     stroke-width: 1.5px;
 }
+.states :hover {
+  fill: blue;
+}
+
+.state-borders {
+  fill: none;
+  stroke: #000;
+  stroke-width: 0.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+#yearSlider {
+  width: 50%;
+}
+input[type="range"] {
+  display: inline-block;
+}

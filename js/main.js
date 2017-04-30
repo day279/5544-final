@@ -13,7 +13,7 @@ function buildImmigrationOverview(section_id) {
     var legendSize = {width: 20, height: 30};
     var legendRectSize = 10, legendSpacing = 4;
     var width = 600 - margin.left - margin.right - legendSize.width,
-	    height = 200 - margin.top - margin.bottom;
+	    height = 400 - margin.top - margin.bottom;
 
     var xScale = d3.scaleLinear().range([0, width]);
     var yScale = d3.scaleLog().range([height, 0]);
@@ -35,7 +35,7 @@ function buildImmigrationOverview(section_id) {
     		var temp = {
     			id: id,
     			values: data.map(function(d) { return {year: d.Year, value: d[id]}; })
-				.filter(function(d) { var answer = (d.year > 0 && NaN != d.year && d.value > 0 && NaN != d.value); return answer;}),
+				.filter(function(d) { var answer = (d.year > 0 && NaN != d.year && d.value > 0 && NaN != d.value); return answer;})
 				
     		};
 		temp.domain = d3.extent(temp.values, function(d) {return d.year;});
@@ -174,5 +174,165 @@ function buildImmigrationOverview(section_id) {
 
 }
 
+
+
+function buildImmigrationState(section_id) {
+    var width = 600,
+	height = 400;
+
+    var color = d3.scaleQuantile().range([d3.interpolateOranges(0), d3.interpolateOranges(0.25), d3.interpolateOranges(0.5), d3.interpolateOranges(0.75), d3.interpolateOranges(1)]);
+
+    var svgTop = d3.select(section_id).append("svg")
+          .attr("width",  width)
+          .attr("height", height);
+    var svg = svgTop.append("g")
+	  .attr("transform", "scale(" + width/1000 + ")");
+
+    svg.append("g")
+	.attr("class", "states")
+	.attr("id", "stateG");
+
+    var path = d3.geoPath();
+    var topology = null; 
+    var immigrationData = null;
+    var variables = [];
+    var activeVariable = null,
+	activeYear = null;
+
+    var stateNameMap = {};
+    var stateNameMapReversed = {};
+
+    d3.tsv("data/us-state-names.tsv", function(error, data) {
+	data.forEach(function (d) {
+		stateNameMap[d.name] = +d.id;
+		stateNameMapReversed[+d.id] = d.name;
+	});
+    });
+
+    function render() {
+        var variableData = immigrationData.filter(function(d) { return d.id == activeVariable;})[0];
+	color.domain(variableData.valueDomain);
+        var variableDataPerYearMap = variableData.values[activeYear];
+
+	//console.log(activeYear);
+	//console.log(activeVariable);
+	//console.log(variableDataPerYearMap);
+
+	var paths = d3.select("#stateG")
+	  .selectAll("path")
+	    .data(topojson.feature(topology, topology.objects.states).features)
+	    .attr("fill", function(d) {return color(variableDataPerYearMap[+d.id]);});
+	paths.enter().append("path")
+	    .attr("class", "states")
+	    .attr("fill", function(d) {return color(variableDataPerYearMap[+d.id]);})
+            .attr("d", path);
+	paths.exit()
+	    .attr("fill", "#000");
+    }
+
+    function appendOptions(){
+	var yearDomain = immigrationData.filter(function(d) { return d.id == activeVariable;})[0].yearDomain;
+
+	var yearSlider = d3.select("#yearSlider")
+	    .attr("min", yearDomain[0])
+	    .attr("max", yearDomain[1])
+	    .attr("value", activeYear)
+	    .attr("step", 1);
+	d3.select("#yearSlider-value").text(activeYear);
+
+	yearSlider.on("input", function() {
+		activeYear = +this.value;
+		d3.select("#yearSlider-value").text(activeYear);
+		render();
+	    });
+
+	var variableSelect = d3.select("#variableOptions")
+	    .append("select")
+	      .attr("name", "variableOptions");
+	variableSelect.selectAll("option")
+	      .data(variables)
+		.enter()
+		.append("option")
+    		.attr("value", function(d) {return d;})
+		.text(function(d) {return d;});
+	variableSelect.on("input", function() {
+		activeVariable = this.value;
+		render();
+	});
+    }
+
+    function process(data) {
+	return data.columns.slice(2).map(function(id) {
+	    var v = data.map(function(d) { return {year: d.Year, state: d.State, value: d[id]}; })
+		    .filter(function(d) { var answer = (d.value > 0 && NaN != d.value); return answer;});
+	    var yDom = d3.extent(v, function(d) {return d.year;});
+	    var vDom = d3.extent(v, function(d) {return d.value;});
+	    var valuesByYear = {};
+
+            for (var y = yDom[0]; y <= yDom[1]; y++) {
+		var map = {}
+		v.filter(function(d) { return d.year == y; })
+		    .forEach(function (d) {map[stateNameMap[d.state]] = d.value;});
+		valuesByYear[y] = map;
+	    }
+
+	    return {
+		id: id,
+		values: valuesByYear,
+		yearDomain: yDom,
+		valueDomain: vDom
+	    };
+    	});
+    }
+
+    d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
+	if (error) throw error;
+
+        topology = us;
+
+	svg.append("path")
+	    .attr("class", "state-borders")
+	    .attr("d", path(topojson.mesh(topology, topology.objects.states, function(a, b) { return a !== b; })) );
+
+        d3.csv("data/acs-with-dhs.csv", function(d){
+        //d3.csv("data/short.csv", function(d){
+    	    return {
+    		Year: +d.Year,
+    		State: d.State,
+    		Population: +d.Population,
+    		Foreign_Residents: +d.Foreign_Residents,
+    		Permanent_Residents: +d.Permanent_Residents,
+    		Naturalized: +d.Naturalized,
+    		Nonimmigrant_Admissions: +d.Nonimmigrant_Admissions,
+    		Visa_Waiver_Tourists_Travelers: +d.Visa_Waiver_Tourists_Travelers,
+    		Other_Tourists_Travelers: +d.Other_Tourists_Travelers,
+    		Students: +d.Students,
+    		Temporary_Workers: +d.Temporary_Workers,
+    		Diplomats: +d.Diplomats,
+    		Other: +d.Other,
+    		Unknown: +d.Unknown,
+    		Violent_Crime: +d.Violent_Crime,
+    		Property_Crime: +d.Property_Crime,
+    		Income_per_capita: +d.Income_per_capita,
+    		Poverty_Rate: +d.Poverty_Rate,
+    		Food_Insecure_Rate: +d.Food_Insecure_Rate,
+    		Very_low_food_secure_rate: +d.Very_low_food_secure_rate,
+    		Unemployment_Rate: +d.Unemployment_Rate
+    	    };
+        }, function(data) {
+		immigrationData = process(data);
+		immigrationData.forEach(function(d){
+		    variables.push(d.id);
+		});
+		activeVariable = immigrationData[0].id;
+		activeYear = immigrationData[0].yearDomain[0];
+		render();
+		appendOptions();
+	});
+    }); 
+
+}
+
 var part1a_id = "#Part1a";
 buildImmigrationOverview(part1a_id);
+buildImmigrationState("#Part1b");

@@ -1,4 +1,4 @@
-Year,State,Total Population,Residents born in Foreign Country,Persons Obtaining Lawful Permanent Resident Status,Persons Naturalized,Total Non-immigrant Admissions,Visa Waiver Tourists and Business Travelers,Other Tourists and Business Travelers,Students and Exchange Visitors,Temporary Workers and Families,Diplomats and Other Representatives,All Other Classes,Unknown,Violent Crime,Property Crime,Income per-capita,Poverty Rate,Food Insecure Household Rate,Very low food secure household rate,Unemployment Rate
+Year,State,Population,Foreign_Residents,Permanent_Residents,Naturalized,Nonimmigrant_Admissions,Visa_Waiver_Tourists_Travelers,Other_Tourists_Travelers,Students,Temporary_Workers,Diplomats,Other,Unknown,Violent_Crime,Property_Crime,Income_per_capita,Poverty_Rate,Food_Insecure_Rate,Very_low_food_secure_rate,Unemployment_Rate
 2016,Alabama,4863300,,,,,,,,,,,,,,,,,,
 2015,Alabama,4858979,199919,3928,2834,151470,54840,64318,13241,14891,2597,1517,66,22952,144746,38030.00,18.50,17.60,7.30,6.10
 2014,Alabama,4849377,193070,3685,1266,141337,53767,55696,12164,15293,2611,1728,78,20727,154094,36974.00,,17.60,7.30,6.80
