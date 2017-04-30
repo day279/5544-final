@@ -333,6 +333,6 @@ function buildImmigrationState(section_id) {
 
 }
 
-var part1a_id = "#Part1a";
+var part1a_id = "#Part1aVis";
 buildImmigrationOverview(part1a_id);
-buildImmigrationState("#Part1b");
+buildImmigrationState("#Part1bVis");
