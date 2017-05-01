@@ -1,0 +1,562 @@
+State,Profession,Total
+Delaware,Executive,138
+Delaware,Professional,389
+Delaware,Sales,40
+Delaware,Administrative,0
+Delaware,Farming,20
+Delaware,Operators,107
+Delaware,Precision,72
+Delaware,Service,185
+Delaware,Military,0
+Delaware,No,1471
+Delaware,Unknown,512
+District of Columbia,Executive,115
+District of Columbia,Professional,242
+District of Columbia,Sales,60
+District of Columbia,Administrative,53
+District of Columbia,Farming,0
+District of Columbia,Operators,61
+District of Columbia,Precision,0
+District of Columbia,Service,174
+District of Columbia,Military,0
+District of Columbia,No,865
+District of Columbia,Unknown,830
+Florida,Executive,5175
+Florida,Professional,6563
+Florida,Sales,2002
+Florida,Administrative,1486
+Florida,Farming,633
+Florida,Operators,2676
+Florida,Precision,1709
+Florida,Service,4343
+Florida,Military,8
+Florida,No,44409
+Florida,Unknown,53882
+Georgia,Executive,1919
+Georgia,Professional,3506
+Georgia,Sales,714
+Georgia,Administrative,364
+Georgia,Farming,0
+Georgia,Operators,1340
+Georgia,Precision,564
+Georgia,Service,1339
+Georgia,Military,0
+Georgia,No,14089
+Georgia,Unknown,7511
+Hawaii,Executive,119
+Hawaii,Professional,341
+Hawaii,Sales,141
+Hawaii,Administrative,158
+Hawaii,Farming,353
+Hawaii,Operators,207
+Hawaii,Precision,25
+Hawaii,Service,276
+Hawaii,Military,0
+Hawaii,No,3377
+Hawaii,Unknown,1475
+Idaho,Executive,44
+Idaho,Professional,158
+Idaho,Sales,11
+Idaho,Administrative,0
+Idaho,Farming,0
+Idaho,Operators,264
+Idaho,Precision,33
+Idaho,Service,111
+Idaho,Military,0
+Idaho,No,1420
+Idaho,Unknown,661
+Illinois,Executive,1864
+Illinois,Professional,4948
+Illinois,Sales,841
+Illinois,Administrative,676
+Illinois,Farming,608
+Illinois,Operators,1632
+Illinois,Precision,0
+Illinois,Service,1917
+Illinois,Military,0
+Illinois,No,20332
+Illinois,Unknown,18839
+Indiana,Executive,194
+Indiana,Professional,717
+Indiana,Sales,69
+Indiana,Administrative,61
+Indiana,Farming,38
+Indiana,Operators,208
+Indiana,Precision,55
+Indiana,Service,196
+Indiana,Military,0
+Indiana,No,3185
+Indiana,Unknown,2187
+Iowa,Executive,72
+Iowa,Professional,435
+Iowa,Sales,46
+Iowa,Administrative,20
+Iowa,Farming,32
+Iowa,Operators,319
+Iowa,Precision,59
+Iowa,Service,141
+Iowa,Military,0
+Iowa,No,1914
+Iowa,Unknown,1486
+Kansas,Executive,105
+Kansas,Professional,570
+Kansas,Sales,86
+Kansas,Administrative,51
+Kansas,Farming,0
+Kansas,Operators,275
+Kansas,Precision,0
+Kansas,Service,163
+Kansas,Military,0
+Kansas,No,2159
+Kansas,Unknown,1042
+Kentucky,Executive,182
+Kentucky,Professional,634
+Kentucky,Sales,69
+Kentucky,Administrative,0
+Kentucky,Farming,26
+Kentucky,Operators,392
+Kentucky,Precision,71
+Kentucky,Service,255
+Kentucky,Military,0
+Kentucky,No,2334
+Kentucky,Unknown,1241
+Louisiana,Executive,136
+Louisiana,Professional,497
+Louisiana,Sales,73
+Louisiana,Administrative,0
+Louisiana,Farming,31
+Louisiana,Operators,92
+Louisiana,Precision,79
+Louisiana,Service,165
+Louisiana,Military,0
+Louisiana,No,1726
+Louisiana,Unknown,922
+Maine,Executive,51
+Maine,Professional,194
+Maine,Sales,19
+Maine,Administrative,17
+Maine,Farming,10
+Maine,Operators,49
+Maine,Precision,19
+Maine,Service,69
+Maine,Military,0
+Maine,No,895
+Maine,Unknown,585
+Maryland,Executive,923
+Maryland,Professional,2669
+Maryland,Sales,592
+Maryland,Administrative,0
+Maryland,Farming,158
+Maryland,Operators,706
+Maryland,Precision,788
+Maryland,Service,1659
+Maryland,Military,0
+Maryland,No,11489
+Maryland,Unknown,3379
+Massachusetts,Executive,1465
+Massachusetts,Professional,3841
+Massachusetts,Sales,551
+Massachusetts,Administrative,0
+Massachusetts,Farming,264
+Massachusetts,Operators,1010
+Massachusetts,Precision,740
+Massachusetts,Service,2300
+Massachusetts,Military,0
+Massachusetts,No,13640
+Massachusetts,Unknown,9865
+Michigan,Executive,988
+Michigan,Professional,3384
+Michigan,Sales,360
+Michigan,Administrative,193
+Michigan,Farming,162
+Michigan,Operators,918
+Michigan,Precision,170
+Michigan,Service,762
+Michigan,Military,0
+Michigan,No,11579
+Michigan,Unknown,5080
+Minnesota,Executive,427
+Minnesota,Professional,1425
+Minnesota,Sales,340
+Minnesota,Administrative,184
+Minnesota,Farming,0
+Minnesota,Operators,734
+Minnesota,Precision,159
+Minnesota,Service,753
+Minnesota,Military,0
+Minnesota,No,7367
+Minnesota,Unknown,3967
+Mississippi,Executive,55
+Mississippi,Professional,257
+Mississippi,Sales,34
+Mississippi,Administrative,15
+Mississippi,Farming,0
+Mississippi,Operators,56
+Mississippi,Precision,38
+Mississippi,Service,79
+Mississippi,Military,0
+Mississippi,No,841
+Mississippi,Unknown,429
+Missouri,Executive,244
+Missouri,Professional,922
+Missouri,Sales,121
+Missouri,Administrative,102
+Missouri,Farming,12
+Missouri,Operators,609
+Missouri,Precision,110
+Missouri,Service,444
+Missouri,Military,0
+Missouri,No,4168
+Missouri,Unknown,1983
+Montana,Executive,11
+Montana,Professional,63
+Montana,Sales,0
+Montana,Administrative,0
+Montana,Farming,0
+Montana,Operators,0
+Montana,Precision,0
+Montana,Service,14
+Montana,Military,0
+Montana,No,223
+Montana,Unknown,258
+Alabama,Executive,207
+Alabama,Professional,573
+Alabama,Sales,58
+Alabama,Administrative,44
+Alabama,Farming,36
+Alabama,Operators,126
+Alabama,Precision,53
+Alabama,Service,131
+Alabama,Military,0
+Alabama,No,1998
+Alabama,Unknown,974
+Nebraska,Executive,64
+Nebraska,Professional,249
+Nebraska,Sales,37
+Nebraska,Administrative,22
+Nebraska,Farming,26
+Nebraska,Operators,202
+Nebraska,Precision,38
+Nebraska,Service,112
+Nebraska,Military,0
+Nebraska,No,1394
+Nebraska,Unknown,853
+Nevada,Executive,231
+Nevada,Professional,543
+Nevada,Sales,246
+Nevada,Administrative,95
+Nevada,Farming,131
+Nevada,Operators,329
+Nevada,Precision,0
+Nevada,Service,675
+Nevada,Military,0
+Nevada,No,4481
+Nevada,Unknown,2885
+New Hampshire,Executive,149
+New Hampshire,Professional,535
+New Hampshire,Sales,25
+New Hampshire,Administrative,26
+New Hampshire,Farming,17
+New Hampshire,Operators,146
+New Hampshire,Precision,54
+New Hampshire,Service,139
+New Hampshire,Military,0
+New Hampshire,No,1370
+New Hampshire,Unknown,837
+New Jersey,Executive,2394
+New Jersey,Professional,5343
+New Jersey,Sales,981
+New Jersey,Administrative,827
+New Jersey,Farming,579
+New Jersey,Operators,1298
+New Jersey,Precision,835
+New Jersey,Service,2359
+New Jersey,Military,10
+New Jersey,No,25925
+New Jersey,Unknown,15628
+New Mexico,Executive,40
+New Mexico,Professional,300
+New Mexico,Sales,31
+New Mexico,Administrative,26
+New Mexico,Farming,40
+New Mexico,Operators,223
+New Mexico,Precision,51
+New Mexico,Service,164
+New Mexico,Military,4
+New Mexico,No,2185
+New Mexico,Unknown,449
+New York,Executive,4400
+New York,Professional,8708
+New York,Sales,2639
+New York,Administrative,2185
+New York,Farming,1855
+New York,Operators,4154
+New York,Precision,2522
+New York,Service,8390
+New York,Military,7
+New York,No,63311
+New York,Unknown,38656
+North Carolina,Executive,932
+North Carolina,Professional,2256
+North Carolina,Sales,271
+North Carolina,Administrative,209
+North Carolina,Farming,171
+North Carolina,Operators,817
+North Carolina,Precision,279
+North Carolina,Service,868
+North Carolina,Military,0
+North Carolina,No,8270
+North Carolina,Unknown,2640
+North Dakota,Executive,0
+North Dakota,Professional,130
+North Dakota,Sales,0
+North Dakota,Administrative,8
+North Dakota,Farming,5
+North Dakota,Operators,34
+North Dakota,Precision,0
+North Dakota,Service,47
+North Dakota,Military,0
+North Dakota,No,396
+North Dakota,Unknown,222
+Ohio,Executive,666
+Ohio,Professional,2000
+Ohio,Sales,234
+Ohio,Administrative,228
+Ohio,Farming,96
+Ohio,Operators,597
+Ohio,Precision,153
+Ohio,Service,690
+Ohio,Military,4
+Ohio,No,7622
+Ohio,Unknown,4606
+Oklahoma,Executive,146
+Oklahoma,Professional,440
+Oklahoma,Sales,85
+Oklahoma,Administrative,34
+Oklahoma,Farming,53
+Oklahoma,Operators,242
+Oklahoma,Precision,86
+Oklahoma,Service,255
+Oklahoma,Military,0
+Oklahoma,No,2626
+Oklahoma,Unknown,722
+Alaska,Executive,45
+Alaska,Professional,101
+Alaska,Sales,29
+Alaska,Administrative,30
+Alaska,Farming,20
+Alaska,Operators,0
+Alaska,Precision,0
+Alaska,Service,62
+Alaska,Military,0
+Alaska,No,958
+Alaska,Unknown,237
+Oregon,Executive,252
+Oregon,Professional,740
+Oregon,Sales,173
+Oregon,Administrative,77
+Oregon,Farming,130
+Oregon,Operators,794
+Oregon,Precision,0
+Oregon,Service,495
+Oregon,Military,0
+Oregon,No,5085
+Oregon,Unknown,1710
+Pennsylvania,Executive,1120
+Pennsylvania,Professional,3291
+Pennsylvania,Sales,435
+Pennsylvania,Administrative,450
+Pennsylvania,Farming,215
+Pennsylvania,Operators,1102
+Pennsylvania,Precision,605
+Pennsylvania,Service,1680
+Pennsylvania,Military,0
+Pennsylvania,No,14522
+Pennsylvania,Unknown,5411
+Rhode Island,Executive,104
+Rhode Island,Professional,295
+Rhode Island,Sales,70
+Rhode Island,Administrative,81
+Rhode Island,Farming,43
+Rhode Island,Operators,230
+Rhode Island,Precision,64
+Rhode Island,Service,243
+Rhode Island,Military,3
+Rhode Island,No,1837
+Rhode Island,Unknown,882
+South Carolina,Executive,334
+South Carolina,Professional,618
+South Carolina,Sales,78
+South Carolina,Administrative,61
+South Carolina,Farming,46
+South Carolina,Operators,128
+South Carolina,Precision,105
+South Carolina,Service,168
+South Carolina,Military,0
+South Carolina,No,2307
+South Carolina,Unknown,1184
+South Dakota,Executive,14
+South Dakota,Professional,65
+South Dakota,Sales,0
+South Dakota,Administrative,0
+South Dakota,Farming,0
+South Dakota,Operators,57
+South Dakota,Precision,13
+South Dakota,Service,59
+South Dakota,Military,0
+South Dakota,No,385
+South Dakota,Unknown,263
+Tennessee,Executive,371
+Tennessee,Professional,1090
+Tennessee,Sales,137
+Tennessee,Administrative,94
+Tennessee,Farming,74
+Tennessee,Operators,364
+Tennessee,Precision,106
+Tennessee,Service,337
+Tennessee,Military,0
+Tennessee,No,4007
+Tennessee,Unknown,2380
+Texas,Executive,3649
+Texas,Professional,7928
+Texas,Sales,1454
+Texas,Administrative,804
+Texas,Farming,832
+Texas,Operators,4026
+Texas,Precision,1209
+Texas,Service,2777
+Texas,Military,25
+Texas,No,47421
+Texas,Unknown,25828
+Utah,Executive,120
+Utah,Professional,263
+Utah,Sales,98
+Utah,Administrative,50
+Utah,Farming,27
+Utah,Operators,230
+Utah,Precision,74
+Utah,Service,237
+Utah,Military,0
+Utah,No,2090
+Utah,Unknown,1892
+Vermont,Executive,47
+Vermont,Professional,172
+Vermont,Sales,26
+Vermont,Administrative,0
+Vermont,Farming,0
+Vermont,Operators,0
+Vermont,Precision,0
+Vermont,Service,81
+Vermont,Military,0
+Vermont,No,478
+Vermont,Unknown,181
+Virginia,Executive,932
+Virginia,Professional,2244
+Virginia,Sales,550
+Virginia,Administrative,0
+Virginia,Farming,0
+Virginia,Operators,737
+Virginia,Precision,459
+Virginia,Service,1381
+Virginia,Military,0
+Virginia,No,11824
+Virginia,Unknown,8326
+Arizona,Executive,553
+Arizona,Professional,1272
+Arizona,Sales,378
+Arizona,Administrative,381
+Arizona,Farming,179
+Arizona,Operators,1912
+Arizona,Precision,466
+Arizona,Service,924
+Arizona,Military,23
+Arizona,No,9124
+Arizona,Unknown,3775
+Washington,Executive,830
+Washington,Professional,2044
+Washington,Sales,338
+Washington,Administrative,0
+Washington,Farming,235
+Washington,Operators,841
+Washington,Precision,181
+Washington,Service,826
+Washington,Military,0
+Washington,No,10462
+Washington,Unknown,10445
+West Virginia,Executive,16
+West Virginia,Professional,121
+West Virginia,Sales,0
+West Virginia,Administrative,0
+West Virginia,Farming,8
+West Virginia,Operators,0
+West Virginia,Precision,0
+West Virginia,Service,29
+West Virginia,Military,0
+West Virginia,No,402
+West Virginia,Unknown,245
+Wisconsin,Executive,342
+Wisconsin,Professional,1022
+Wisconsin,Sales,112
+Wisconsin,Administrative,85
+Wisconsin,Farming,63
+Wisconsin,Operators,487
+Wisconsin,Precision,65
+Wisconsin,Service,368
+Wisconsin,Military,0
+Wisconsin,No,3869
+Wisconsin,Unknown,1496
+Wyoming,Executive,0
+Wyoming,Professional,29
+Wyoming,Sales,0
+Wyoming,Administrative,0
+Wyoming,Farming,0
+Wyoming,Operators,6
+Wyoming,Precision,0
+Wyoming,Service,0
+Wyoming,Military,0
+Wyoming,No,154
+Wyoming,Unknown,106
+Arkansas,Executive,62
+Arkansas,Professional,243
+Arkansas,Sales,37
+Arkansas,Administrative,20
+Arkansas,Farming,32
+Arkansas,Operators,124
+Arkansas,Precision,19
+Arkansas,Service,71
+Arkansas,Military,0
+Arkansas,No,1169
+Arkansas,Unknown,921
+California,Executive,8002
+California,Professional,16114
+California,Sales,5810
+California,Administrative,2322
+California,Farming,3956
+California,Operators,12683
+California,Precision,2946
+California,Service,8817
+California,Military,82
+California,No,115739
+California,Unknown,55543
+Colorado,Executive,338
+Colorado,Professional,910
+Colorado,Sales,166
+Colorado,Administrative,105
+Colorado,Farming,69
+Colorado,Operators,307
+Colorado,Precision,149
+Colorado,Service,453
+Colorado,Military,0
+Colorado,No,5072
+Colorado,Unknown,4398
+Connecticut,Executive,834
+Connecticut,Professional,1482
+Connecticut,Sales,253
+Connecticut,Administrative,0
+Connecticut,Farming,98
+Connecticut,Operators,477
+Connecticut,Precision,332
+Connecticut,Service,1030
+Connecticut,Military,0
+Connecticut,No,6719
+Connecticut,Unknown,3895
