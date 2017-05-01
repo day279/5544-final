@@ -50,7 +50,7 @@ var div = d3.select("body")
     		.style("opacity", 0);
 var heatmapColor = d3.scale.linear()
   .range(["#ffe6e6", "#1a0000"])//d3.range(0, 1, 1.0 / (colors.length - 1)))
-  .domain(d3.extent(data, function(d1) {console.log("prop:",d1.Total);	if(d1.Total>5000) return 5000; else return d1.Total;  }))
+  .domain(d3.extent(data, function(d1) {if(d1.Total>5000) return 5000; else return d1.Total;  }))
   .interpolate(d3.interpolateLab);// 
 
 // var colors = ["#000000","#080000","#100000","#180000","#200000","#280000","#300000","#380000","#400000",
