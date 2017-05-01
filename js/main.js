@@ -223,7 +223,7 @@ function buildImmigrationState(section_id) {
 	color.domain(variableData.valueDomain);
         var variableDataPerYearMap = variableData.values[activeYear];
 
-	console.log(variableData.yearDomain);
+	//console.log(variableData.yearDomain);
 	var yearSlider = d3.select("#yearSlider")
 	    .attr("min", variableData.yearDomain[0])
 	    .attr("max", variableData.yearDomain[1])
@@ -259,7 +259,7 @@ function buildImmigrationState(section_id) {
 	legendCells.append("text")
 	      .attr("class", "label")
 	      .attr("transform", "translate(25, 12.5)")
-	      .text(function(d) {console.log(d[0]); return d[0] + " to " + d[1];});
+	      .text(function(d) {return d[0] + " to " + d[1];});
 
 	//console.log(activeYear);
 	//console.log(activeVariable);
@@ -332,6 +332,7 @@ function buildImmigrationState(section_id) {
 		    .forEach(function (d) {map[stateNameMap[d.state]] = d.value;});
 		valuesByYear[y] = map;
 	    }
+	    //console.log(id + " " + vDom);
 
 	    return {
 		id: id,
