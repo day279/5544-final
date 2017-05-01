@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>My first X3DOM page</title>
+  <script type='text/javascript' src='js/x3dom-full.js'></script>
+  <script src='https://d3js.org/d3.v4.min.js'></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <link rel='stylesheet' type='text/css' href='css/x3dom.css'></link>
+  <style>
+    #title {
+      font-size: 35px;
+      font-family: sans-serif;
+      text-align: center;
+      display: block;
+    }
+    
+    input {
+      display: none;
+    }
+    
+    #sideinfo {
+      margin-left: 1050px;
+      font-size: 20px;
+      font-family: sans-serif;
+    }
+
+  </style>
+</head>
+
+<body>
+  <x3d id='x3d' width='1200' height='800'>
+    <div id='title'></div>
+    <scene>
+      <transform id='info'>
+        <billboard axisofrotation='[0, 0, 0]'>
+          <shape>
+            <text>
+              <fontstyle>
+              </fontstyle>
+            </text>
+          </shape>
+        </billboard>
+      </transform>
+    </scene>
+  </x3d>
+  <div id='sideinfo'></div>
+  <input type=range value='2006' min='2006' max='2015'></input>
+</body>
+
+</html>
+
+<script>
+  var upperLimit = 20;
+
+  var sphereSize = 0.3;
+
+  var numTicks = 5;
+
+  var scene = d3.select('x3d scene');
+
+  var half = upperLimit / 2;
+
+  var colorScale = d3.scaleOrdinal(d3.schemeSet1);
+
+  var e = document.getElementById('x3d');
+
+  var ortho = scene.append('transform')
+    .attr('translation', [half, half, 0])
+    .append('orthoviewpoint')
+    .attr('position', [0, 0, 10])
+    .attr('fieldofview', [-half - 6, -half - 6, half + 6, half + 6])
+    .attr('centerofrotation', [0, 0, -half])
+    .attr('zfar', '-10000')
+    .attr('znear', '10000');
+
+  var slider = d3.select('input');
+  var sliderMin = +slider.attr('min');
+  var sliderMax = +slider.attr('max');
+
+  function makeSolid(selection, color) {
+    selection.append("appearance")
+      .append("material")
+      .attr("diffuseColor", color || "black")
+    return selection;
+  }
+
+  function row(d) {
+    d.year = +d.year;
+    d.arrivals = +d.arrivals;
+    d.affirmative = +d.affirmative;
+    d.defensive = +d.defensive;
+    return d;
+  }
+
+  function makeScale(data, key) {
+
+    var extent = d3.extent(data, function(d) {
+      if (d[key] > 0) {
+        return d[key];
+      } else {
+        return 0.1;
+      }
+    });
+
+    var scale = d3.scaleLog()
+      .domain(extent)
+      .range([0, upperLimit]);
+
+    return scale.nice().clamp(true);
+
+  }
+
+  var currentEvent = null;
+
+  function mouseover(event) {
+    currentEvent = event;
+
+    var curData = d3.select(event.target).datum();
+    var country = curData.country;
+    var affirmative = curData.affirmative;
+    var defensive = curData.defensive;
+    var arrivals = curData.arrivals;
+
+    d3.select(event.target).select('material').attr('diffuseColor', '0 1 0');
+
+    d3.select('#info').attr('translation', [event.worldX, event.worldY, event.worldZ]).attr('render', 'true');
+
+    d3.select('#info shape').call(makeSolid);
+
+    d3.select('#info text').attr('string', `"${country}" "Affirmative: ${affirmative}" "Defensive: ${defensive}" "Arrivals: ${arrivals}"`);
+
+    d3.select('#info fontstyle').attr('family', 'SANS').attr('size', '0.7');
+
+    d3.select('#sideinfo')
+      .html(`${country} <br> Affirmative: ${affirmative} <br> Defensive: ${defensive} <br> Arrivals: ${arrivals}`);
+
+  }
+
+  function mouseout(event) {
+    d3.select('#info').attr('render', 'false');
+    d3.select(event.target).select('material')
+      .attr('diffuseColor', function(d) {
+        return colorScale(d.continent);
+      });
+  }
+
+  //  function handleClick(event) {
+  //    currentEvent = event;
+  //    currentEvent.click = true;
+  //
+  //    var curData = d3.select(event.target).datum();
+  //    var country = curData.country;
+  //    var affirmative = curData.affirmative;
+  //    var defensive = curData.defensive;
+  //    var arrivals = curData.arrivals;
+  //
+  //    d3.select(event.target).select('material').attr('diffuseColor', '0 1 0');
+  //
+  //    d3.select('#info').attr('translation', [event.worldX, event.worldY, event.worldZ]).attr('render', 'true');
+  //
+  //    d3.select('#info shape').call(makeSolid);
+  //
+  //    d3.select('#info text').attr('string', `"${country}" "Affirmative: ${affirmative}" "Defensive: ${defensive}" "Arrivals: ${arrivals}"`);
+  //
+  //    d3.select('#info fontstyle').attr('family', 'SANS');
+  //  }
+
+  var x3d = d3.select('x3d');
+  var width = +x3d.attr('width');
+  var height = +x3d.attr('height');
+
+  d3.csv('data/asylum.csv', row, function(error, data) {
+
+    byYear = {};
+
+    for (i = 2006; i <= 2015; i++) {
+      byYear[i] = [];
+      for (d of data) {
+        if (d.year === i) {
+          byYear[i].push(d);
+        }
+      }
+    }
+
+    var t = d3.transition()
+      .duration(750)
+      .ease(d3.easeLinear);
+
+    var xScale = makeScale(data, 'affirmative');
+
+    var yScale = makeScale(data, 'defensive');
+
+    var zScale = makeScale(data, 'arrivals');
+
+    function update() {
+
+      var theYear = +slider.property('value')
+      var current = byYear[+slider.property('value')];
+
+      d3.select('#title')
+        .html('Refugee Statistics for ' + theYear);
+
+      trans = scene.selectAll('transform.point')
+        .data(current, function(d) {
+          return d.country;
+        });
+
+      trans.selectAll('shape').data(current, function(d) {
+        return d.country;
+      });
+
+      trans.attr('onmouseover', 'mouseover(event)')
+        .transition()
+        .duration(500)
+        .ease(d3.easeLinear)
+        .attr('translation', function(d) {
+          return [xScale(d.affirmative), yScale(d.defensive), -zScale(d.arrivals)];
+        });
+
+      trans.exit().remove();
+
+      tenter = trans.enter()
+        .append('transform')
+        .attr('onmouseover', 'mouseover(event)')
+        .attr('onmouseout', 'mouseout(event)')
+        //        .attr('onclick', 'handleClick(event)')
+        .attr('class', 'point')
+        .attr('scale', [sphereSize, sphereSize, sphereSize])
+        .attr('translation', function(d) {
+          return [xScale(d.affirmative), yScale(d.defensive), -zScale(d.arrivals)];
+        });
+
+      var shape = tenter.append('shape');
+
+      shape.append('sphere');
+
+      shape.append('appearance')
+        .append('material')
+        .attr('ambientIntensity', '0')
+        .attr('diffuseColor', function(d) {
+          return colorScale(d.continent);
+        });
+
+      if (currentEvent !== null) {
+        var curData = d3.select(currentEvent.target).datum();
+        var country = curData.country;
+        var affirmative = curData.affirmative;
+        var defensive = curData.defensive;
+        var arrivals = curData.arrivals;
+
+        d3.select('#info text').attr('string', `"${country}" "Affirmative: ${affirmative}" "Defensive: ${defensive}" "Arrivals: ${arrivals}"`);
+        d3.select('#sideinfo')
+          .html(`${country} <br> Affirmative: ${affirmative} <br> Defensive: ${defensive} <br> Arrivals: ${arrivals}`);
+      }
+
+    }
+
+    slider.on('input', update);
+
+    update();
+
+    var xGrid1 = scene.selectAll('transform.xGrid1')
+      .data(xScale.ticks(numTicks))
+      .enter()
+      .append('transform')
+      .attr('translation', [0, 0, -zScale.range()[1]])
+      .attr('class', 'xGrid1')
+      .append('shape')
+      .append('polyline2d')
+      .attr('usegeocache', 'false')
+      .attr('linesegments', function(d) {
+        return xScale(d) + ' 0, ' + xScale(d) + ' ' + yScale.range()[1];
+      });
+
+    var yGrid1 = scene.selectAll('transform.yGrid1')
+      .data(yScale.ticks(numTicks))
+      .enter()
+      .append('transform')
+      .attr('translation', [0, 0, -zScale.range()[1]])
+      .attr('class', 'yGrid1')
+      .append('shape')
+      .append('polyline2d')
+      .attr('usegeocache', 'false')
+      .attr('linesegments', function(d) {
+        return '0 ' + yScale(d) + ', ' + xScale.range()[1] + ' ' + yScale(d);
+      });
+
+    var yGrid2 = scene.selectAll('transform.yGrid2')
+      .data(yScale.ticks(numTicks))
+      .enter()
+      .append('transform')
+      .attr('rotation', [0, 1, 0, Math.PI / 2])
+      .attr('class', 'yGrid2')
+      .append('shape')
+      .append('polyline2d')
+      .attr('usegeocache', 'false')
+      .attr('linesegments', function(d) {
+        return '0 ' + yScale(d) + ', ' + zScale.range()[1] + ' ' + yScale(d);
+      });
+
+    var zGrid2 = scene.selectAll('transform.zGrid2')
+      .data(yScale.ticks(numTicks))
+      .enter()
+      .append('transform')
+      .attr('rotation', [0, 1, 0, Math.PI / 2])
+      .attr('class', 'zGrid2')
+      .append('shape')
+      .append('polyline2d')
+      .attr('usegeocache', 'false')
+      .attr('linesegments', function(d) {
+        return zScale(d) + ' 0, ' + zScale(d) + ' ' + yScale.range()[1];
+      });
+
+    var xGrid3 = scene.selectAll('transform.xGrid3')
+      .data(yScale.ticks(numTicks))
+      .enter()
+      .append('transform')
+      .attr('rotation', [1, 0, 0, -Math.PI / 2])
+      .attr('class', 'xGrid3')
+      .append('shape')
+      .append('polyline2d')
+      .attr('usegeocache', 'false')
+      .attr('linesegments', function(d) {
+        return xScale(d) + ' 0, ' + xScale(d) + ' ' + zScale.range()[1];
+      });
+
+    var zGrid3 = scene.selectAll('transform.zGrid3')
+      .data(yScale.ticks(numTicks))
+      .enter()
+      .append('transform')
+      .attr('rotation', [1, 0, 0, -Math.PI / 2])
+      .attr('class', 'zGrid3')
+      .append('shape')
+      .append('polyline2d')
+      .attr('usegeocache', 'false')
+      .attr('linesegments', function(d) {
+        return '0 ' + zScale(d) + ', ' + xScale.range()[1] + ' ' + zScale(d);
+      });
+
+    var textMargin = 1.5;
+    var textSize = 1;
+
+    var xLabel = scene.append('transform')
+      .attr('translation', [half, -textMargin * 2, textMargin * 2])
+      .append('billboard')
+      .attr('axisofrotation', [0, 0, 0]);
+
+    xLabel.append('shape')
+      .call(makeSolid)
+      .append('text')
+      .attr('string', 'Affirmative')
+      .append('fontstyle')
+      .attr('family', 'SANS');
+
+    var yLabel = scene.append('transform')
+      .attr('translation', [-textMargin * 2, half, textMargin * 2])
+      .append('billboard')
+      .attr('axisofrotation', [0, 0, 0]);
+
+    yLabel.append('shape')
+      .call(makeSolid)
+      .append('text')
+      .attr('string', 'Defensive')
+      .append('fontstyle')
+      .attr('family', 'SANS');
+
+    var zLabel = scene.append('transform')
+      .attr('translation', [-textMargin * 3, -textMargin * 2, -half])
+      .append('billboard')
+      .attr('axisofrotation', [0, 0, 0])
+      .attr('render', 'false');
+
+    zLabel.append('shape')
+      .call(makeSolid)
+      .append('text')
+      .attr('string', 'Arrivals')
+      .append('fontstyle')
+      .attr('family', 'SANS');
+
+    var xTicks = scene.selectAll('transform.xTick')
+      .data(xScale.ticks(numTicks))
+      .enter()
+      .append('transform')
+      .attr('class', 'xTick')
+      .attr('translation', function(d) {
+        return [xScale(d), -textMargin, textMargin];
+      });
+
+    var xTicksBillboard = xTicks.append('billboard')
+      .attr('axisofrotation', [0, 0, 0]);
+
+    xTicksBillboard.append('shape')
+      .call(makeSolid)
+      .attr('class', 'tick')
+      .append('text')
+      .attr('string', function(d, i) {
+        if (i === 0) {
+          return 0;
+        }
+        return d;
+      })
+      .append('fontstyle')
+      .attr('size', textSize)
+      .attr('family', 'SANS');
+
+    var yTicks = scene.selectAll('transform.yTick')
+      .data(xScale.ticks(numTicks))
+      .enter()
+      .append('transform')
+      .attr('class', 'yTick')
+      .attr('translation', function(d) {
+        return [-textMargin, yScale(d), textMargin];
+      });
+
+    var yTicksBillboard = yTicks.append('billboard')
+      .attr('axisofrotation', [0, 0, 0]);
+
+    yTicksBillboard.append('shape')
+      .call(makeSolid)
+      .attr('class', 'tick')
+      .append('text')
+      .attr('string', function(d, i) {
+        if (i === 0) {
+          return 0;
+        }
+        return d;
+      })
+      .append('fontstyle')
+      .attr('size', textSize)
+      .attr('family', 'SANS');
+
+    var zTicks = scene.selectAll('transform.zTick')
+      .data(xScale.ticks(numTicks))
+      .enter()
+      .append('transform')
+      .attr('class', 'zTick')
+      .attr('translation', function(d) {
+        return [-textMargin, -textMargin, -zScale(d)];
+      });
+
+    var zTicksBillboard = zTicks.append('billboard')
+      .attr('axisofrotation', [0, 0, 0])
+      .attr('render', 'false');
+
+    zTicksBillboard.attr('rotation', [0, 1, 0, Math.PI / 2])
+      .append('shape')
+      .call(makeSolid)
+      .attr('class', 'tick')
+      .append('text')
+      .attr('string', function(d, i) {
+        if (i === 0) {
+          return 0;
+        }
+        return d;
+      })
+      .append('fontstyle')
+      .attr('size', textSize)
+      .attr('family', 'SANS');
+
+    d3.select('body')
+      .on('keydown', function() {
+
+        var key = d3.event.keyCode;
+
+        if (key === 37 || key === 39) {
+
+          var currentYear = +slider.property('value');
+          var nextYear = currentYear;
+
+          if (key === 37) {
+            nextYear = currentYear - 1
+          } else if (key === 39) {
+            nextYear = currentYear + 1;
+          }
+
+          if (nextYear >= sliderMin && nextYear <= sliderMax) {
+            slider.property('value', nextYear);
+            update();
+          }
+
+        }
+
+        if (key >= 49 && key <= 52) {
+
+          var cameraDuration = 1500;
+
+          if (key === 49) {
+            ortho.transition()
+              .duration(cameraDuration)
+              .attr('position', [0, 0, 10])
+              .attr('orientation', [0, 1, 0, 0]);
+            xTicksBillboard.attr('render', 'true');
+            yTicksBillboard.attr('render', 'true');
+            zTicksBillboard.attr('render', 'false');
+            xLabel.attr('render', 'true');
+            yLabel.attr('render', 'true');
+            zLabel.attr('render', 'false');
+          } else if (key === 50) {
+            ortho.transition()
+              .duration(cameraDuration)
+              .attr('position', [half, 0, -half])
+              .attr('orientation', [0, 1, 0, Math.PI / 2]);
+            xTicksBillboard.attr('render', 'false');
+            yTicksBillboard.attr('render', 'true');
+            zTicksBillboard.attr('render', 'true');
+            xLabel.attr('render', 'false');
+            yLabel.attr('render', 'true');
+            zLabel.attr('render', 'true');
+          } else if (key === 51) {
+            ortho.transition()
+              .duration(cameraDuration)
+              .attr('position', [0, half, -half])
+              .attr('orientation', [1, 0, 0, -Math.PI / 2]);
+            xTicksBillboard.attr('render', 'true');
+            yTicksBillboard.attr('render', 'false');
+            zTicksBillboard.attr('render', 'true');
+            xLabel.attr('render', 'true');
+            yLabel.attr('render', 'false');
+            zLabel.attr('render', 'true');
+          } else if (key === 52) {
+            xTicksBillboard.attr('render', 'true');
+            yTicksBillboard.attr('render', 'true');
+            zTicksBillboard.attr('render', 'true');
+            xLabel.attr('render', 'true');
+            yLabel.attr('render', 'true');
+            zLabel.attr('render', 'true');
+          }
+
+        }
+
+      });
+
+  });
+
+</script>
