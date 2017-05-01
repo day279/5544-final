@@ -122,7 +122,7 @@ svg.selectAll("path")
 	})	
 	.on("mouseover", function(d) {  
     
-		tip.html(d.properties.Total+" State:"+d.properties.NAME+heatmapColor(d.properties.Total));
+		tip.html(d.properties.Total+" State:"+d.properties.NAME);
         tip.show();
     
 	})   
