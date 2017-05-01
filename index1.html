@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+ <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<style type="text/css">
+
+/* On mouse hover, lighten state color */
+path:hover {
+	fill-opacity: .7;
+}
+
+/* Style for Custom Tooltip */
+div.tooltip {   
+ 	position: absolute;           
+	text-align: center;           
+	width: 60px;                  
+	height: 28px;                 
+	padding: 2px;             
+	font: 12px sans-serif;        
+	background: white;   
+	border: 0px;      
+	border-radius: 8px;           
+	pointer-events: none;         
+}
+        
+/* Legend Font Style */
+body {
+	font: 11px sans-serif;
+}
+        
+/* Legend Position Style */
+.legend {
+	position:absolute;
+	left:800px;
+	top:350px;
+}
+   
+ .d3-tip {
+      line-height: 1;
+      font-weight: bold;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      border-radius: 2px;
+    }
+</style>
+</head>
+<body>
+<form>
+<!-- <select id="myList" >
+  <option value="default">Default</option>
+  <option value="theme1">Theme 1</option>
+  <option value="theme2">Theme 2</option>  
+  <option value="theme3">Theme 3</option>
+</select>
+<form> -->
+<input class="slider" type="range" min="2005" max="2015" value="0" step="1" id="nh">
+   <select id="option">
+      <option       value="Management">Management</option>
+      <option       value="Service">Service</option>
+      <option       value="Sales"  >Sales</option>
+      <option       value="Farming" >Farming</option>
+      <option       value="Construction"> Construction</option>
+      <option       value="Production"> Production</option>
+      <option       value="Military"  > Military</option>
+      <option       value="Students"  > Students</option>
+      <option       value="Retirees"  > Retirees</option>
+      <option       value="No"     > No </option>
+      <option       value="Homemakers"> Homemakers</option>
+      <option       value="Unemployed" > Unemployed</option>
+      <option       value="Unknown"   > Unknown</option>
+      </div>
+       
+<!-- document.getElementById("option").onchange = function() {
+   funct(this.value);
+   return false
+}; -->
+        <script src="state2.js"></script>
+</body>
+</html>
