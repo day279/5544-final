@@ -54,12 +54,20 @@ function buildImmigrationOverview(section_id) {
     	svg.append("g")
     		.attr("class", "axis axis--x")
     		.attr("transform", "translate(0," + height + ")")
-    		.call(xAxis);
+    		.call(xAxis)
+		.append("text")
+		.attr("class", "label")
+    		.attr("y", -10)
+    		.attr("x", width -10)
+    		.attr("dy", "0.71em")
+    		.attr("fill", "#000")
+		.text("Year");
 
     	svg.append("g")
     		.attr("class", "axis axis--y")
     		.call(yAxis)
     		.append("text")
+		.attr("class", "label")
     		.attr("transform", "rotate(-90) ")
     		.attr("y", 6)
     		.attr("dy", "0.71em")
@@ -152,7 +160,7 @@ function buildImmigrationOverview(section_id) {
 		  	return "";
 		  }
 		  d3.select(this).select('text')
-	              .text(actual_val.value);
+	              .text(d3.format(",.0f")(actual_val.value));
 	      
 		  return "translate(" + mouse[0] + "," + yScale(actual_val.value) +")";
 		}
@@ -178,13 +186,14 @@ function buildImmigrationOverview(section_id) {
 
 function buildImmigrationState(section_id) {
     var width = 600,
-	height = 400;
+	height = 500;
 
     var color = d3.scaleQuantile().range([d3.interpolateOranges(0), d3.interpolateOranges(0.25), d3.interpolateOranges(0.5), d3.interpolateOranges(0.75), d3.interpolateOranges(1)]);
 
     var svgTop = d3.select(section_id).append("svg")
           .attr("width",  width)
-          .attr("height", height);
+          .attr("height", height)
+	  .style("background-color", "#d3ecfe");
     var svg = svgTop.append("g")
 	  .attr("transform", "scale(" + width/1000 + ")");
 
@@ -213,6 +222,37 @@ function buildImmigrationState(section_id) {
         var variableData = immigrationData.filter(function(d) { return d.id == activeVariable;})[0];
 	color.domain(variableData.valueDomain);
         var variableDataPerYearMap = variableData.values[activeYear];
+
+	var legendValues = [];
+	legendValues.push([color.domain()[0], color.quantiles()[0]]);
+	color.quantiles().forEach(function(d,i) {
+	    if (i + 1 < color.quantiles().length) {
+	        legendValues.push([d, color.quantiles()[i+1]]);
+	    } else {
+	        legendValues.push([d, color.domain()[1]]);
+	    }
+	});
+
+	d3.select("text.legendTitle").text(activeVariable);
+
+	var legendCells = d3.select("g.legendCells")
+	    .selectAll("g.cell")
+	      .data(legendValues);
+	legendCells.select("text.label")
+		  .text(function(d) {return legendValues[0] + " to " + legendValues[1];});
+	legendCells = legendCells.enter()
+	    .append("g")
+	      .attr("class", "cell")
+	      .attr("transform", function(d, i) { return "translate(0, " + 22*i + ")";});
+	legendCells.append("rect")
+	      .attr("class", "swatch")
+	      .style("fill", function(d) {return color(d[0]);})
+	      .attr("height", 15)
+	      .attr("width", 15);
+	legendCells.append("text")
+	      .attr("class", "label")
+	      .attr("transform", "translate(25, 12.5)")
+	      .text(function(d) {return d3.format("d")(d[0]) + " to " + d3.format("d")(d[1]);});
 
 	//console.log(activeYear);
 	//console.log(activeVariable);
@@ -259,6 +299,16 @@ function buildImmigrationState(section_id) {
 		activeVariable = this.value;
 		render();
 	});
+
+	var legend = svg.append("g")
+	    .attr("class", "legendQuant")
+	    .attr("transform", "translate(30,650)");
+	legend.append("g")
+	    .attr("class", "legendCells")
+	    .attr("transform", "translate(0,20)");
+	legend.append("text")
+	    .attr("class", "legendTitle")
+	    .text(activeVariable);
     }
 
     function process(data) {
@@ -326,8 +376,8 @@ function buildImmigrationState(section_id) {
 		});
 		activeVariable = immigrationData[0].id;
 		activeYear = immigrationData[0].yearDomain[0];
-		render();
 		appendOptions();
+		render();
 	});
     }); 
 

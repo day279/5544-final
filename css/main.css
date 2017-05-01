@@ -72,6 +72,10 @@ body{
 path.line {
     fill:none;
 }
+text.label {
+    font-weight:bold;
+    font-size:1em;
+}
 .axis path,
 .axis line {
     fill: none;
@@ -106,4 +110,8 @@ path.line {
 }
 input[type="range"] {
   display: inline-block;
+}
+
+.sources{
+ text-align:left
 }
