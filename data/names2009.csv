@@ -1,0 +1,677 @@
+State,Profession,Total
+Delaware,Management,282
+Delaware,Service,150
+Delaware,Sales,86
+Delaware,Farming,19
+Delaware,Construction,10
+Delaware,Production,52
+Delaware,Military,0
+Delaware,No,1056
+Delaware,Homemakers,269
+Delaware,Students,635
+Delaware,Retirees,12
+Delaware,Unemployed,140
+Delaware,Unknown,529
+District of Columbia,Management,444
+District of Columbia,Service,214
+District of Columbia,Sales,136
+District of Columbia,Farming,0
+District of Columbia,Construction,0
+District of Columbia,Production,0
+District of Columbia,Military,0
+District of Columbia,No,1113
+District of Columbia,Homemakers,0
+District of Columbia,Students,668
+District of Columbia,Retirees,0
+District of Columbia,Unemployed,206
+District of Columbia,Unknown,927
+Florida,Management,8845
+Florida,Service,6291
+Florida,Sales,4243
+Florida,Farming,0
+Florida,Construction,0
+Florida,Production,4948
+Florida,Military,0
+Florida,No,58639
+Florida,Homemakers,14870
+Florida,Students,29820
+Florida,Retirees,968
+Florida,Unemployed,12981
+Florida,Unknown,41846
+Georgia,Management,2682
+Georgia,Service,1184
+Georgia,Sales,965
+Georgia,Farming,251
+Georgia,Construction,197
+Georgia,Production,885
+Georgia,Military,0
+Georgia,No,13457
+Georgia,Homemakers,3639
+Georgia,Students,7415
+Georgia,Retirees,205
+Georgia,Unemployed,2198
+Georgia,Unknown,8775
+Hawaii,Management,408
+Hawaii,Service,301
+Hawaii,Sales,292
+Hawaii,Farming,376
+Hawaii,Construction,0
+Hawaii,Production,0
+Hawaii,Military,0
+Hawaii,No,3718
+Hawaii,Homemakers,1053
+Hawaii,Students,1852
+Hawaii,Retirees,26
+Hawaii,Unemployed,787
+Hawaii,Unknown,1656
+Idaho,Management,159
+Idaho,Service,208
+Idaho,Sales,87
+Idaho,Farming,76
+Idaho,Construction,34
+Idaho,Production,187
+Idaho,Military,0
+Idaho,No,1797
+Idaho,Homemakers,521
+Idaho,Students,1005
+Idaho,Retirees,36
+Idaho,Unemployed,235
+Idaho,Unknown,572
+Illinois,Management,4194
+Illinois,Service,1791
+Illinois,Sales,1177
+Illinois,Farming,648
+Illinois,Construction,234
+Illinois,Production,2004
+Illinois,Military,0
+Illinois,No,20250
+Illinois,Homemakers,7015
+Illinois,Students,9667
+Illinois,Retirees,433
+Illinois,Unemployed,3135
+Illinois,Unknown,11591
+Indiana,Management,876
+Indiana,Service,315
+Indiana,Sales,189
+Indiana,Farming,0
+Indiana,Construction,0
+Indiana,Production,538
+Indiana,Military,0
+Indiana,No,4501
+Indiana,Homemakers,1192
+Indiana,Students,2681
+Indiana,Retirees,64
+Indiana,Unemployed,564
+Indiana,Unknown,2554
+Iowa,Management,355
+Iowa,Service,164
+Iowa,Sales,117
+Iowa,Farming,57
+Iowa,Construction,13
+Iowa,Production,261
+Iowa,Military,0
+Iowa,No,1956
+Iowa,Homemakers,569
+Iowa,Students,1132
+Iowa,Retirees,13
+Iowa,Unemployed,242
+Iowa,Unknown,1040
+Kansas,Management,486
+Kansas,Service,196
+Kansas,Sales,176
+Kansas,Farming,64
+Kansas,Construction,42
+Kansas,Production,380
+Kansas,Military,0
+Kansas,No,2657
+Kansas,Homemakers,950
+Kansas,Students,1379
+Kansas,Retirees,38
+Kansas,Unemployed,290
+Kansas,Unknown,1318
+Kentucky,Management,430
+Kentucky,Service,216
+Kentucky,Sales,122
+Kentucky,Farming,0
+Kentucky,Construction,0
+Kentucky,Production,441
+Kentucky,Military,0
+Kentucky,No,2634
+Kentucky,Homemakers,470
+Kentucky,Students,1613
+Kentucky,Retirees,28
+Kentucky,Unemployed,523
+Kentucky,Unknown,1340
+Louisiana,Management,486
+Louisiana,Service,269
+Louisiana,Sales,180
+Louisiana,Farming,48
+Louisiana,Construction,91
+Louisiana,Production,151
+Louisiana,Military,0
+Louisiana,No,2278
+Louisiana,Homemakers,713
+Louisiana,Students,1123
+Louisiana,Retirees,23
+Louisiana,Unemployed,419
+Louisiana,Unknown,796
+Maine,Management,111
+Maine,Service,70
+Maine,Sales,20
+Maine,Farming,3
+Maine,Construction,0
+Maine,Production,25
+Maine,Military,0
+Maine,No,968
+Maine,Homemakers,123
+Maine,Students,700
+Maine,Retirees,7
+Maine,Unemployed,138
+Maine,Unknown,470
+Maryland,Management,3935
+Maryland,Service,2272
+Maryland,Sales,1443
+Maryland,Farming,229
+Maryland,Construction,423
+Maryland,Production,998
+Maryland,Military,3
+Maryland,No,12897
+Maryland,Homemakers,3017
+Maryland,Students,7230
+Maryland,Retirees,376
+Maryland,Unemployed,2274
+Maryland,Unknown,4522
+Massachusetts,Management,3727
+Massachusetts,Service,2331
+Massachusetts,Sales,1145
+Massachusetts,Farming,371
+Massachusetts,Construction,6
+Massachusetts,Production,1137
+Massachusetts,Military,0
+Massachusetts,No,15798
+Massachusetts,Homemakers,3247
+Massachusetts,Students,9010
+Massachusetts,Retirees,384
+Massachusetts,Unemployed,3157
+Massachusetts,Unknown,7827
+Michigan,Management,2384
+Michigan,Service,868
+Michigan,Sales,550
+Michigan,Farming,191
+Michigan,Construction,56
+Michigan,Production,686
+Michigan,Military,0
+Michigan,No,10346
+Michigan,Homemakers,2893
+Michigan,Students,5596
+Michigan,Retirees,195
+Michigan,Unemployed,1662
+Michigan,Unknown,3835
+Minnesota,Management,1284
+Minnesota,Service,841
+Minnesota,Sales,502
+Minnesota,Farming,0
+Minnesota,Construction,0
+Minnesota,Production,751
+Minnesota,Military,0
+Minnesota,No,9038
+Minnesota,Homemakers,1110
+Minnesota,Students,6264
+Minnesota,Retirees,189
+Minnesota,Unemployed,1475
+Minnesota,Unknown,5404
+Mississippi,Management,187
+Mississippi,Service,74
+Mississippi,Sales,47
+Mississippi,Farming,0
+Mississippi,Construction,0
+Mississippi,Production,82
+Mississippi,Military,0
+Mississippi,No,886
+Mississippi,Homemakers,295
+Mississippi,Students,413
+Mississippi,Retirees,14
+Mississippi,Unemployed,164
+Mississippi,Unknown,308
+Missouri,Management,808
+Missouri,Service,412
+Missouri,Sales,223
+Missouri,Farming,68
+Missouri,Construction,0
+Missouri,Production,309
+Missouri,Military,0
+Missouri,No,3515
+Missouri,Homemakers,891
+Missouri,Students,1990
+Missouri,Retirees,74
+Missouri,Unemployed,560
+Missouri,Unknown,1778
+Alabama,Management,428
+Alabama,Service,161
+Alabama,Sales,87
+Alabama,Farming,0
+Alabama,Construction,0
+Alabama,Production,110
+Alabama,Military,0
+Alabama,No,1889
+Alabama,Homemakers,570
+Alabama,Students,975
+Alabama,Retirees,27
+Alabama,Unemployed,317
+Alabama,Unknown,1159
+Montana,Management,68
+Montana,Service,26
+Montana,Sales,33
+Montana,Farming,3
+Montana,Construction,3
+Montana,Production,39
+Montana,Military,0
+Montana,No,320
+Montana,Homemakers,0
+Montana,Students,155
+Montana,Retirees,0
+Montana,Unemployed,104
+Montana,Unknown,61
+Nebraska,Management,241
+Nebraska,Service,153
+Nebraska,Sales,71
+Nebraska,Farming,0
+Nebraska,Construction,0
+Nebraska,Production,460
+Nebraska,Military,0
+Nebraska,No,1861
+Nebraska,Homemakers,533
+Nebraska,Students,1110
+Nebraska,Retirees,12
+Nebraska,Unemployed,206
+Nebraska,Unknown,1142
+Nevada,Management,688
+Nevada,Service,831
+Nevada,Sales,483
+Nevada,Farming,0
+Nevada,Construction,129
+Nevada,Production,565
+Nevada,Military,0
+Nevada,No,5996
+Nevada,Homemakers,2149
+Nevada,Students,2440
+Nevada,Retirees,89
+Nevada,Unemployed,1318
+Nevada,Unknown,3497
+New Hampshire,Management,275
+New Hampshire,Service,143
+New Hampshire,Sales,74
+New Hampshire,Farming,27
+New Hampshire,Construction,0
+New Hampshire,Production,87
+New Hampshire,Military,0
+New Hampshire,No,1242
+New Hampshire,Homemakers,302
+New Hampshire,Students,713
+New Hampshire,Retirees,36
+New Hampshire,Unemployed,191
+New Hampshire,Unknown,627
+New Jersey,Management,6089
+New Jersey,Service,3068
+New Jersey,Sales,2091
+New Jersey,Farming,636
+New Jersey,Construction,0
+New Jersey,Production,1782
+New Jersey,Military,0
+New Jersey,No,28972
+New Jersey,Homemakers,8360
+New Jersey,Students,15340
+New Jersey,Retirees,621
+New Jersey,Unemployed,4651
+New Jersey,Unknown,15918
+New Mexico,Management,323
+New Mexico,Service,154
+New Mexico,Sales,117
+New Mexico,Farming,4
+New Mexico,Construction,80
+New Mexico,Production,334
+New Mexico,Military,0
+New Mexico,No,2215
+New Mexico,Homemakers,874
+New Mexico,Students,926
+New Mexico,Retirees,26
+New Mexico,Unemployed,389
+New Mexico,Unknown,622
+New York,Management,12916
+New York,Service,13494
+New York,Sales,6243
+New York,Farming,1710
+New York,Construction,0
+New York,Production,4831
+New York,Military,0
+New York,No,74838
+New York,Homemakers,18359
+New York,Students,42001
+New York,Retirees,759
+New York,Unemployed,13719
+New York,Unknown,35558
+North Carolina,Management,2015
+North Carolina,Service,1014
+North Carolina,Sales,618
+North Carolina,Farming,38
+North Carolina,Construction,263
+North Carolina,Production,914
+North Carolina,Military,0
+North Carolina,No,9493
+North Carolina,Homemakers,2745
+North Carolina,Students,5094
+North Carolina,Retirees,155
+North Carolina,Unemployed,1499
+North Carolina,Unknown,4026
+North Dakota,Management,74
+North Dakota,Service,50
+North Dakota,Sales,19
+North Dakota,Farming,0
+North Dakota,Construction,0
+North Dakota,Production,0
+North Dakota,Military,0
+North Dakota,No,412
+North Dakota,Homemakers,0
+North Dakota,Students,276
+North Dakota,Retirees,0
+North Dakota,Unemployed,0
+North Dakota,Unknown,232
+Ohio,Management,1731
+Ohio,Service,585
+Ohio,Sales,419
+Ohio,Farming,0
+Ohio,Construction,0
+Ohio,Production,726
+Ohio,Military,0
+Ohio,No,7399
+Ohio,Homemakers,1478
+Ohio,Students,4492
+Ohio,Retirees,121
+Ohio,Unemployed,1308
+Ohio,Unknown,4342
+Alaska,Management,125
+Alaska,Service,85
+Alaska,Sales,47
+Alaska,Farming,33
+Alaska,Construction,5
+Alaska,Production,33
+Alaska,Military,0
+Alaska,No,851
+Alaska,Homemakers,0
+Alaska,Students,459
+Alaska,Retirees,0
+Alaska,Unemployed,182
+Alaska,Unknown,429
+Oklahoma,Management,429
+Oklahoma,Service,211
+Oklahoma,Sales,137
+Oklahoma,Farming,62
+Oklahoma,Construction,74
+Oklahoma,Production,282
+Oklahoma,Military,0
+Oklahoma,No,2472
+Oklahoma,Homemakers,879
+Oklahoma,Students,1154
+Oklahoma,Retirees,27
+Oklahoma,Unemployed,412
+Oklahoma,Unknown,1340
+Oregon,Management,768
+Oregon,Service,329
+Oregon,Sales,261
+Oregon,Farming,0
+Oregon,Construction,0
+Oregon,Production,381
+Oregon,Military,0
+Oregon,No,4477
+Oregon,Homemakers,1173
+Oregon,Students,2576
+Oregon,Retirees,95
+Oregon,Unemployed,633
+Oregon,Unknown,2643
+Pennsylvania,Management,2700
+Pennsylvania,Service,1492
+Pennsylvania,Sales,863
+Pennsylvania,Farming,246
+Pennsylvania,Construction,0
+Pennsylvania,Production,759
+Pennsylvania,Military,0
+Pennsylvania,No,11812
+Pennsylvania,Homemakers,2816
+Pennsylvania,Students,6689
+Pennsylvania,Retirees,260
+Pennsylvania,Unemployed,2047
+Pennsylvania,Unknown,6089
+Puerto Rico,Management,272
+Puerto Rico,Service,310
+Puerto Rico,Sales,113
+Puerto Rico,Farming,0
+Puerto Rico,Construction,0
+Puerto Rico,Production,133
+Puerto Rico,Military,0
+Puerto Rico,No,2568
+Puerto Rico,Homemakers,667
+Puerto Rico,Students,1640
+Puerto Rico,Retirees,8
+Puerto Rico,Unemployed,253
+Puerto Rico,Unknown,660
+Rhode Island,Management,289
+Rhode Island,Service,265
+Rhode Island,Sales,113
+Rhode Island,Farming,39
+Rhode Island,Construction,24
+Rhode Island,Production,205
+Rhode Island,Military,0
+Rhode Island,No,2244
+Rhode Island,Homemakers,463
+Rhode Island,Students,1318
+Rhode Island,Retirees,13
+Rhode Island,Unemployed,450
+Rhode Island,Unknown,977
+South Carolina,Management,516
+South Carolina,Service,237
+South Carolina,Sales,147
+South Carolina,Farming,0
+South Carolina,Construction,0
+South Carolina,Production,127
+South Carolina,Military,0
+South Carolina,No,2388
+South Carolina,Homemakers,749
+South Carolina,Students,1175
+South Carolina,Retirees,43
+South Carolina,Unemployed,421
+South Carolina,Unknown,1195
+South Dakota,Management,63
+South Dakota,Service,49
+South Dakota,Sales,0
+South Dakota,Farming,9
+South Dakota,Construction,0
+South Dakota,Production,56
+South Dakota,Military,0
+South Dakota,No,600
+South Dakota,Homemakers,0
+South Dakota,Students,426
+South Dakota,Retirees,0
+South Dakota,Unemployed,0
+South Dakota,Unknown,479
+Tennessee,Management,893
+Tennessee,Service,469
+Tennessee,Sales,301
+Tennessee,Farming,0
+Tennessee,Construction,60
+Tennessee,Production,577
+Tennessee,Military,0
+Tennessee,No,4501
+Tennessee,Homemakers,1050
+Tennessee,Students,2620
+Tennessee,Retirees,58
+Tennessee,Unemployed,773
+Tennessee,Unknown,2180
+Texas,Management,8506
+Texas,Service,3392
+Texas,Sales,2743
+Texas,Farming,992
+Texas,Construction,0
+Texas,Production,5143
+Texas,Military,0
+Texas,No,50145
+Texas,Homemakers,18352
+Texas,Students,24182
+Texas,Retirees,726
+Texas,Unemployed,6885
+Texas,Unknown,23712
+Utah,Management,376
+Utah,Service,230
+Utah,Sales,169
+Utah,Farming,58
+Utah,Construction,42
+Utah,Production,316
+Utah,Military,0
+Utah,No,3152
+Utah,Homemakers,961
+Utah,Students,1721
+Utah,Retirees,39
+Utah,Unemployed,431
+Utah,Unknown,2123
+Arizona,Management,1414
+Arizona,Service,994
+Arizona,Sales,580
+Arizona,Farming,0
+Arizona,Construction,0
+Arizona,Production,1159
+Arizona,Military,0
+Arizona,No,11554
+Arizona,Homemakers,4300
+Arizona,Students,5256
+Arizona,Retirees,162
+Arizona,Unemployed,1836
+Arizona,Unknown,4893
+Vermont,Management,93
+Vermont,Service,63
+Vermont,Sales,31
+Vermont,Farming,0
+Vermont,Construction,0
+Vermont,Production,0
+Vermont,Military,0
+Vermont,No,429
+Vermont,Homemakers,0
+Vermont,Students,257
+Vermont,Retirees,0
+Vermont,Unemployed,112
+Vermont,Unknown,148
+Virginia,Management,3422
+Virginia,Service,1873
+Virginia,Sales,1199
+Virginia,Farming,231
+Virginia,Construction,0
+Virginia,Production,848
+Virginia,Military,0
+Virginia,No,14482
+Virginia,Homemakers,3701
+Virginia,Students,7911
+Virginia,Retirees,364
+Virginia,Unemployed,2506
+Virginia,Unknown,7483
+Washington,Management,3076
+Washington,Service,1138
+Washington,Sales,873
+Washington,Farming,467
+Washington,Construction,137
+Washington,Production,862
+Washington,Military,0
+Washington,No,13018
+Washington,Homemakers,3080
+Washington,Students,7232
+Washington,Retirees,294
+Washington,Unemployed,2412
+Washington,Unknown,7984
+West Virginia,Management,116
+West Virginia,Service,0
+West Virginia,Sales,26
+West Virginia,Farming,4
+West Virginia,Construction,0
+West Virginia,Production,0
+West Virginia,Military,0
+West Virginia,No,341
+West Virginia,Homemakers,0
+West Virginia,Students,175
+West Virginia,Retirees,0
+West Virginia,Unemployed,0
+West Virginia,Unknown,212
+Wisconsin,Management,795
+Wisconsin,Service,296
+Wisconsin,Sales,215
+Wisconsin,Farming,84
+Wisconsin,Construction,23
+Wisconsin,Production,522
+Wisconsin,Military,0
+Wisconsin,No,3407
+Wisconsin,Homemakers,917
+Wisconsin,Students,1820
+Wisconsin,Retirees,56
+Wisconsin,Unemployed,614
+Wisconsin,Unknown,1385
+Wyoming,Management,31
+Wyoming,Service,0
+Wyoming,Sales,0
+Wyoming,Farming,0
+Wyoming,Construction,0
+Wyoming,Production,0
+Wyoming,Military,0
+Wyoming,No,210
+Wyoming,Homemakers,57
+Wyoming,Students,107
+Wyoming,Retirees,6
+Wyoming,Unemployed,40
+Wyoming,Unknown,139
+Arkansas,Management,249
+Arkansas,Service,124
+Arkansas,Sales,93
+Arkansas,Farming,0
+Arkansas,Construction,0
+Arkansas,Production,246
+Arkansas,Military,0
+Arkansas,No,1666
+Arkansas,Homemakers,616
+Arkansas,Students,779
+Arkansas,Retirees,18
+Arkansas,Unemployed,253
+Arkansas,Unknown,476
+California,Management,23808
+California,Service,9733
+California,Sales,9735
+California,Farming,3939
+California,Construction,1725
+California,Production,11057
+California,Military,21
+California,No,117232
+California,Homemakers,43451
+California,Students,52830
+California,Retirees,3124
+California,Unemployed,17827
+California,Unknown,50625
+Colorado,Management,1127
+Colorado,Service,601
+Colorado,Sales,374
+Colorado,Farming,142
+Colorado,Construction,81
+Colorado,Production,641
+Colorado,Military,0
+Colorado,No,6279
+Colorado,Homemakers,1846
+Colorado,Students,3219
+Colorado,Retirees,137
+Colorado,Unemployed,1077
+Colorado,Unknown,3596
+Connecticut,Management,1320
+Connecticut,Service,757
+Connecticut,Sales,376
+Connecticut,Farming,0
+Connecticut,Construction,0
+Connecticut,Production,364
+Connecticut,Military,0
+Connecticut,No,6067
+Connecticut,Homemakers,1365
+Connecticut,Students,3404
+Connecticut,Retirees,83
+Connecticut,Unemployed,1215
+Connecticut,Unknown,4483
