@@ -64,5 +64,21 @@
       <input       type="button"       value="Aliens Removed"       onclick="Aliens_Removed()" />
     </div>
                <script src="crime.js"></script>
+	    <p>
+	    Preparing the data: Had to be taken from multiple sources,
+		    <<ul style="list-style-type:disc">
+		    <li>Homeland Security</li>
+		    <li>FBI Crime Database</li>
+		    <li>Location Tracker</li>
+	    </ul>
+Each dataset has their own naming and formatting convention. 
+To generate number of people across different state in various profession:
+<<ul style="list-style-type:disc">
+		    <li>Data was for number of residents in different occupation (as Management, Sales) was given county wise with one county having single excel file. There was a folder containing an excel file for each county</li>
+		    <li>Another dataset had the name of corresponding state of each county.</li>
+		    <li>We had to read in each county, extract data, map to state and insert in a separate .csv file. This whole operation gave the number of residents for each state in a single year. Now we had to run a script to download folder of excel files for each year then perform the above operation on each folder and append all the result.</li>
+	    </ul>
+To generate vicious crime statistics, we had to get FBI data for each year, the formats varying radically before 2001(-1996) and after 2001-2015. Some values were given in a pdf specially for the older years and had to be typed (could not be copied) in an excel file. Once we had data of various kinds of crimes for metropolitan, we found a database containing location information (latitude, longtitude) of these cities and map them.
+</p>
   </body>
   </html>
