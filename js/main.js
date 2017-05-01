@@ -230,11 +230,11 @@ function buildImmigrationState(section_id) {
 	yearScaleInverse.domain(variableData.yearRange)
 	    .range(variableData.yearDomain);
 
-	console.log(variableData.yearDomain);
-	console.log(variableData.yearRange);
+	//console.log(variableData.yearDomain);
+	//console.log(variableData.yearRange);
 
-	console.log(yearScale.range()[0] + " " + yearScale.range()[yearScale.range().length-1]);
-	console.log(yearScale(activeYear));
+	//console.log(yearScale.range()[0] + " " + yearScale.range()[yearScale.range().length-1]);
+	//console.log(yearScale(activeYear));
 
 	var yearSlider = d3.select("#yearSlider")
 	    .attr("min", yearScale.range()[0])
