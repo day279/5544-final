@@ -152,11 +152,19 @@ svg.selectAll("circle")
 	.attr("r", function(d) {
 		return Math.sqrt(d.Violent) / 8;
 	})
-		.style("fill", "#80ffff")	
-		.style("opacity", 0.5)
+	.style("fill", "#80ffff")	
+	.style("opacity", 0.5)
+	.on("mouseover", function(d) {  
+    
+		tip.html(d.Metropoliton+" (%):"+Math.round(d.Property/d.Violent*100)/100);
+        tip.show();
+    
+	})   
+            
+    .on("mouseout", function(d) {       
+    	tip.hide();})
 } );
         
-
 	
 	});
 
