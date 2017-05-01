@@ -189,6 +189,8 @@ function buildImmigrationState(section_id) {
 	height = 500;
 
     var color = d3.scaleQuantile().range([d3.interpolateOranges(0), d3.interpolateOranges(0.25), d3.interpolateOranges(0.5), d3.interpolateOranges(0.75), d3.interpolateOranges(1)]);
+    var yearScale = d3.scaleOrdinal();
+    var yearScaleInverse = d3.scaleOrdinal();
 
     var svgTop = d3.select(section_id).append("svg")
           .attr("width",  width)
@@ -223,11 +225,21 @@ function buildImmigrationState(section_id) {
 	color.domain(variableData.valueDomain);
         var variableDataPerYearMap = variableData.values[activeYear];
 
-	//console.log(variableData.yearDomain);
+	yearScale.domain(variableData.yearDomain);
+	yearScale.range(variableData.yearRange);
+	yearScaleInverse.domain(variableData.yearRange)
+	    .range(variableData.yearDomain);
+
+	console.log(variableData.yearDomain);
+	console.log(variableData.yearRange);
+
+	console.log(yearScale.range()[0] + " " + yearScale.range()[yearScale.range().length-1]);
+	console.log(yearScale(activeYear));
+
 	var yearSlider = d3.select("#yearSlider")
-	    .attr("min", variableData.yearDomain[0])
-	    .attr("max", variableData.yearDomain[1])
-	    .attr("value", activeYear)
+	    .attr("min", yearScale.range()[0])
+	    .attr("max", yearScale.range()[yearScale.range().length-1])
+	    .attr("value", yearScale(activeYear))
 	    .attr("step", 1);
 
 	var legendValues = [];
@@ -261,10 +273,6 @@ function buildImmigrationState(section_id) {
 	      .attr("transform", "translate(25, 12.5)")
 	      .text(function(d) {return d[0] + " to " + d[1];});
 
-	//console.log(activeYear);
-	//console.log(activeVariable);
-	//console.log(variableDataPerYearMap);
-
 	var paths = d3.select("#stateG")
 	  .selectAll("path")
 	    .data(topojson.feature(topology, topology.objects.states).features)
@@ -278,17 +286,24 @@ function buildImmigrationState(section_id) {
     }
 
     function appendOptions(){
-	var yearDomain = immigrationData.filter(function(d) { return d.id == activeVariable;})[0].yearDomain;
+        var variableData = immigrationData.filter(function(d) { return d.id == activeVariable;})[0];
+
+	yearScale.domain(variableData.yearDomain);
+	yearScale.range(variableData.yearRange);
+
+	yearScaleInverse.domain(variableData.yearRange)
+	    .range(variableData.yearDomain);
 
 	var yearSlider = d3.select("#yearSlider")
-	    .attr("min", yearDomain[0])
-	    .attr("max", yearDomain[1])
-	    .attr("value", activeYear)
+	    .attr("min", yearScale.range()[0])
+	    .attr("max", yearScale.range()[yearScale.range().length-1])
+	    .attr("value", yearScale(activeYear))
 	    .attr("step", 1);
 	d3.select("#yearSlider-value").text(activeYear);
 
+
 	yearSlider.on("input", function() {
-		activeYear = +this.value;
+		activeYear = yearScaleInverse(+this.value);
 		d3.select("#yearSlider-value").text(activeYear);
 		render();
 	    });
@@ -322,23 +337,34 @@ function buildImmigrationState(section_id) {
 	return data.columns.slice(2).map(function(id) {
 	    var v = data.map(function(d) { return {year: d.Year, state: d.State, value: d[id]}; })
 		    .filter(function(d) { var answer = (d.value > 0 && NaN != d.value); return answer;});
-	    var yDom = d3.extent(v, function(d) {return d.year;});
+	    var yExt = d3.extent(v, function(d) {return d.year;});
 	    var vDom = d3.extent(v, function(d) {return d.value;});
 	    var valuesByYear = {};
+	    var yDom = d3.set();
+	    var yRange = [];
 
-            for (var y = yDom[0]; y <= yDom[1]; y++) {
+	    v.forEach(function(d) {
+		yDom.add(d.year);
+	    });
+	    yDom = yDom.values().sort();
+	    yDom.forEach(function(d, i) {
+		yRange.push(i);
+	    });
+
+            for (var y = yExt[0]; y <= yExt[1]; y++) {
 		var map = {}
 		v.filter(function(d) { return d.year == y; })
 		    .forEach(function (d) {map[stateNameMap[d.state]] = d.value;});
 		valuesByYear[y] = map;
 	    }
-	    //console.log(id + " " + vDom);
 
 	    return {
 		id: id,
 		values: valuesByYear,
+		yearExtent: yExt,
+		valueDomain: vDom,
 		yearDomain: yDom,
-		valueDomain: vDom
+		yearRange: yRange
 	    };
     	});
     }
@@ -383,7 +409,7 @@ function buildImmigrationState(section_id) {
 		    variables.push(d.id);
 		});
 		activeVariable = immigrationData[0].id;
-		activeYear = immigrationData[0].yearDomain[0];
+		activeYear = immigrationData[0].yearExtent[0];
 		appendOptions();
 		render();
 	});
