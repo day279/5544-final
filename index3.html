@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>My first X3DOM page</title>
+  <title>Refugee Admissions and Arrivals by Country, Type, and Year</title>
   <script type='text/javascript' src='js/x3dom-full.js'></script>
   <script src='https://d3js.org/d3.v4.min.js'></script>
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
@@ -26,12 +26,41 @@
       font-size: 20px;
       font-family: sans-serif;
     }
+    
+    p {
+      font-family: sans-serif;
+    }
+    
+    body {
+      font-family: sans-serif;
+    }
+    
+    div.legend {
+      display: inline-block;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
 
   </style>
 </head>
 
 <body>
-  <x3d id='x3d' width='1200' height='800'>
+  <p>
+    The United States grants asylum to thousands refugees every year. When a refugee is granted asylum, they are officially given there refugee status in the US. There are two ways a refugee can be admitted as a refugee; affirmative admission and defensive admission. An affirmative admission occurs when a refugee's case is reviewed and is granted asylum. A defensive admission occurs when a refugee is initially denied an affirmative admission but appeals the denial and is then granted asylum. There is always a large backlog of refugee cases, so it often takes several years to reach a decision for a refugee case, and even longer if they are trying for a defensive admission. As such, refugees admitted in 2006, for example, most likely submitted their cases for review sometime between 2001 - 2003. This means there is a time lag to consider when looking at the data.
+  </p>
+  <p>
+    In the visualization below, the number of admissions for each type is shown for the current year. The year can be advanced using the arrows keys; the right arrow key increases the eyar and the left arrow key decreases it. A 0 for the amount can indicate the number of admissions was 0 or that the data was not available. Each point represents a country. Points are color coded by their continent; Asia is red, Africa is green, Europe is blue, North America is yellow, South America is orange, and unknown countries are purple. Advancing time shows there is a slight shift from more defensive admissions to more affirmative admissions for refugees, probably due to a relaxing of refugee policy in the US.
+  </p>
+  <p>
+    There is another dimension to the data not immediately visible. Mousing over a point on the visualization will bring up the exact data for that country for the current year. The third dimension is arrivals, which is the number of people who arrived in the US seeking refugee status for the current year. Note that this statistic does not have a time lag like the admissions.
+  </p>
+  <p>
+    The visualization can be rotated by clicking a dragging to view the third dimension. Pressing the number 4 key will turn on all of the axis labels. The current view can be reset by pressing the R key. One thing that is apparent is that the arrivals are usually much lower compared to admissions for each country. What this suggests is that most refugees come to the US and then begin seeking refugee status, rather than officially declaring they are coming to the US looking for refugee status and then travelling to the US.
+  </p>
+  <p>
+    Looking at all 3 dimensions at once is useful, but it is also useful to isolate two dimensions and eliminate a third. Three different views can be switched to by pressing the numbers 1, 2, and 3 keys respectively. The 1 key isolated affirmative and defensive admissions, the 2 key isolates defensive admissions and arrivals, and the 3 key isolates affirmative admissions and arrivals. This isolation can be achieved because the viewport is using an orthographic projection, allowing a third dimension to be hidden due to a lack of perspective depth.
+  </p>
+  <x3d id='x3d' width='900' height='700'>
     <div id='title'></div>
     <scene>
       <transform id='info'>
@@ -261,6 +290,27 @@
     slider.on('input', update);
 
     update();
+
+    console.log(colorScale.domain());
+
+    var legend = d3.select('x3d')
+      .selectAll('div.legend')
+      .data(colorScale.domain())
+      .enter()
+      .append('div');
+
+    legend.append('div')
+      .style('height', '10px')
+      .style('width', '10px')
+      .attr('class', 'legend')
+      .style('background-color', function(d) {
+        return colorScale(d);
+      });
+    
+    legend.append('span')
+      .html(function(d) {
+        return d;
+    });
 
     var xGrid1 = scene.selectAll('transform.xGrid1')
       .data(xScale.ticks(numTicks))
