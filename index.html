@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>CSE 5544 Final</title>
+    <script
+			  src="https://code.jquery.com/jquery-2.2.4.min.js"
+			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			  crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://d3js.org/d3-array.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                CSE 5544 Final
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+		<li><a href="index2.html">Violent crime with mode of admission</a></li>
+		<li><a href="index1.html">Immigration Status with Violent Crime</a></li>
+                <li><a href="index3.html">Refugee Admissions and Arrivals by Country, Type, and Year</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <!--Nav Bar -->
+    <nav class="col-xs-3 bs-docs-sidebar">
+        <ul id="sidebar" class="nav nav-stacked">
+            <li>
+                <a href="#intro">Top</a>
+            </li>
+            <li>
+                <a href="#Part1">Introduction</a>
+            </li>
+            <li>
+                <a href="#Part2">Overview</a>
+                <ul class="nav nav-stacked">
+                    <li><a href="#Part2a">Immigration in the U.S.</a></li>
+                    <li><a href="#Part2b">Immigration by State</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+	<div id="content" class="col-xs-9">	
+        	<section id="intro" class="jumbotron group text-center">
+			<h1>CSE 5544 Final</h1>
+			<p>Meghan Day and Sayan Mandal</p>
+		</section>
+		
+		<section id="Part2" class="group text-center">
+			<h2>Overview</h2>
+			<div id="Part2a" class="subgroup well">
+				<h3>Immigration in the U.S. Since 1820</h3>
+				<div id="Part1aVis"></div>
+				<div><h4>Analysis</h4>
+					<ul class="sources"><li>The number of persons obtaining permanent resident status shows the surge of immigration in the 1800's and early 1900's. We see a sharp drop in immigration during the World Wars and a peak corresponding to the Immigration Act of 1990. The other populations have not been tracked for as long, but there is an interesting trend of refugee arrivals decreasing during the 1990's while the number of asylum seekers rose.</li></ul>
+				</div>
+				<div>
+					<h4>Data Sources</h4>
+					<ul class="sources">
+						<li><a href="https://www.census.gov/data/tables/time-series/demo/geographic-mobility/historic.html">U.S. Census - Current Population Survey</a>, 1981 - 2016, yearly. Number of new residents from foreign country.</li>
+						<li><a href="https://www.dhs.gov/immigration-statistics/yearbook/2015">Department of Homeland Security Immigration Statistics</a>, varies. Number of persons obtaining permanent resident status, number of non-immigrant admissions, refugee arrivals, and individuals granted asylum.</li>
+					</ul>
+				</div>
+			</div>
+			<div id="Part2b" class="subgroup well text-center">
+				<h3>Immigration by State</h3>
+				<div id="yearOptions" style="width:50%;margin:auto;background-color:gray;padding-top:10px;padding-bottom:5px;margin-bottom:5px;">
+					<label for="yearSlider"><span id="yearSlider-value"></span></label>
+					<p><input type="range" id="yearSlider" /></p>
+				</div>
+				<div id="variableOptions">
+				</div>
+				<div id="Part1bVis"></div>
+				<div><h4>Analysis</h4>
+					<ul class="sources">
+					<li>We can see that a number of states are the most common attractors for movers from from abroad of all types. These include California, Florida, New York, and Texas which are also the most populous states.</li>
+					<li>Overall non-immigrant admissions have been greater in the 2010's than the previous decade, with Nevada being a popular destination despite its relatively smaller population size. There may have been an increase in gambling tourism during this decade.</li>
+					<li>People on student visas have been attracted to states with excellent universities, including Illinois, Pennsylvania, and Michigan. These same states have had high incomes per capita in the last two years.</li>
+					<li>Work visas mostly correspond with populous states, although Michigan sticks out as having a greater number of migrant workers from 2009 to 2014. This is interesting as in the national unemployment rates peaked in 2010 and were particularly bad in Michigan, along with North and South Carolina, Florida, California, and Nevada.</li>
+					<li>Violent crime has been decreasing, especially along the East Coast, but is still high in Michigan, Illinois, Tennessee. Property crime has not changed much over the time frame, but is high in Illinois, Ohio, North Carolina, and Seattle. Regions which appear unattractive to immigrations, such as the Deep South and the Great Plains, are struggling regions with high poverty and household food security rates.</li>
+					</ul>
+				</div>
+				<div>
+					<h4>Data Sources</h4>
+					<ul class="sources">
+						<li><a href="https://www.census.gov/data/tables/time-series/demo/geographic-mobility/state-of-residence-place-of-birth-acs.html">U.S. Census - Ammerican Community Survey</a>, 2010, 2013, 2014, 2015. Total population per state, number of residents per state born abroad.</li>
+						<li><a href="https://www.dhs.gov/immigration-statistics/yearbook/2015">Department of Homeland Security Immigration Statistics</a>, varies. Number of persons obtaining permanent resident status, number of non-immigrant admissions, refugee arrivals, and individuals granted asylum per state.</li>
+						<li><a href="https://ucr.fbi.gov/crime-in-the-u.s/2015/crime-in-the-u.s.-2015/offenses-known-to-law-enforcement/violent-crime">Federal Bureau of Investigation Yearly Crime Statistics</a>, 1995 - 2015, yearly. Violent crime and property crime rates per state.</li>
+						<li><a href="https://www.bls.gov/lau/#data">Bureau of Labor Statistics</a>, 2012 - 2016, yearly; 1980 - 2015, every 5 years. Unemployement rates per state.</li>
+						<li><a href="https://data.ers.usda.gov/reports.aspx?ID=10633">U.S. Department of Agriculture - Economic Research Service</a>, 1980 - 2015, every 10 years. Per-capita income, unemployment rates, and food insecure household rates per state.</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
